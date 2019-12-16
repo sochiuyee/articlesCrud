@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('head'); %>
+    <title>详情页</title>
+</head>
+<body>
+    <%- include('bar', {username: username}); %>
+
+    <div class="detail">
+        <h3 class="title"><%= item.title %></h3>
+        <ul>
+            <li>作者：<%= username %></li>
+            <li>时间：<%= item.time %></li>
+        </ul>
+        <p class="content"><%- item.content %></p>
+    </div>
+</body>
+</html>

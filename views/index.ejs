@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>首页</title>
+  <%- include('head'); %>
+</head>
+
+<body>
+  <%- include('bar', {username: username}); %>
+
+  <div class="article-content">
+    <% list.list.map(function(item,index){ %>
+    <ul class="article-list">
+      <li><%= index+1 %></li>
+      <li><%= item.username %></li>
+      <li><a href="/detail?id=<%= item.id %>"><%= item.title %></a></li>
+      <li><%= item.time %></li>
+      <li>
+        <a href="/write?id=<%= item.id %>&page=<%=list.curPage%>">编辑</a>
+      </li>
+      <li>
+        <a href="/article/delete?id=<%= item.id %>&page=<%=list.curPage%>">删除</a>
+      </li>
+    </ul>
+    <% }) %>
+
+    <div class="page">
+      <% for(let i =1; i<=list.total; i++){ %>
+        <!-- 点击跳转下一页，带page参数 -->
+        <a href="/index?page=<%=i%>"><%= i %></a>
+      <% } %>
+    </div>
+  </div>
+</body>
+
+</html>

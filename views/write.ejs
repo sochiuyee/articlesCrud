@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('head'); %>
+    <title>写文章</title>
+</head>
+<body>
+    <%- include('bar', {username: username}); %>
+
+    <div class="article-container">
+        <form action="/article/add" method="POST">
+            <input type="hidden" name="id" value="<%- item.id %>">
+            <input type="hidden" name="page" value="<%- item.page %>">
+            <input type="text" name="title" id="" placeholder="请输入标题" value="<%= item.title%>">
+            <textarea name="content" id=""><%- item.content %></textarea>
+            <% if(item.id) { %>
+                <input type="submit" value="修改">
+            <% }else{ %>
+                <input type="submit" value="发布">
+            <% } %>
+        </form>
+    </div>
+</body>
+</html>
